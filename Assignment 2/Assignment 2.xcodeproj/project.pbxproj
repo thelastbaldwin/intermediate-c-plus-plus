@@ -11,6 +11,8 @@
 		F46A5A4B188B5A03003CB2C6 /* Assignment_2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = F46A5A4A188B5A03003CB2C6 /* Assignment_2.1 */; };
 		F46A5A54188B5E5A003CB2C6 /* regexTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F46A5A53188B5E5A003CB2C6 /* regexTest.cpp */; };
 		F46A5A78188C412E003CB2C6 /* libcppUnitLite2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F46A5A77188C412E003CB2C6 /* libcppUnitLite2.a */; };
+		F46A5A7A188DBEEE003CB2C6 /* stringParseTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F46A5A79188DBEEE003CB2C6 /* stringParseTest.cpp */; };
+		F46A5A7D188DC120003CB2C6 /* student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F46A5A7B188DC120003CB2C6 /* student.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,9 @@
 		F46A5A4A188B5A03003CB2C6 /* Assignment_2.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Assignment_2.1; sourceTree = "<group>"; };
 		F46A5A53188B5E5A003CB2C6 /* regexTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = regexTest.cpp; sourceTree = "<group>"; };
 		F46A5A77188C412E003CB2C6 /* libcppUnitLite2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcppUnitLite2.a; path = ../../../../../../usr/local/lib/libcppUnitLite2.a; sourceTree = "<group>"; };
+		F46A5A79188DBEEE003CB2C6 /* stringParseTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringParseTest.cpp; sourceTree = "<group>"; };
+		F46A5A7B188DC120003CB2C6 /* student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = student.cpp; sourceTree = "<group>"; };
+		F46A5A7C188DC120003CB2C6 /* student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = student.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +74,9 @@
 				F46A5A48188B5A03003CB2C6 /* main.cpp */,
 				F46A5A4A188B5A03003CB2C6 /* Assignment_2.1 */,
 				F46A5A53188B5E5A003CB2C6 /* regexTest.cpp */,
+				F46A5A79188DBEEE003CB2C6 /* stringParseTest.cpp */,
+				F46A5A7B188DC120003CB2C6 /* student.cpp */,
+				F46A5A7C188DC120003CB2C6 /* student.h */,
 			);
 			path = "Assignment 2";
 			sourceTree = "<group>";
@@ -126,6 +134,8 @@
 			files = (
 				F46A5A49188B5A03003CB2C6 /* main.cpp in Sources */,
 				F46A5A54188B5E5A003CB2C6 /* regexTest.cpp in Sources */,
+				F46A5A7A188DBEEE003CB2C6 /* stringParseTest.cpp in Sources */,
+				F46A5A7D188DC120003CB2C6 /* student.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
