@@ -16,8 +16,8 @@ Student::Student(std::string _name, int _id):
 		}
 	};
 
-std::string Student::getName(){ return name; }
-int Student::getId(){ return id; }
+std::string Student::getName() const{ return name; }
+int Student::getId() const{ return id; }
 
 std::string getNextStudent(const std::string& s){
 	static size_t currentIndex = 0;
@@ -67,8 +67,25 @@ int extractId(const std::string & s){
 	return id;
 }
 
+bool studentCompare(const Student& a, const Student& b){
+	std::string aName = a.getName();
+	std::string bName = b.getName();
+	
+	std::transform(aName.begin(), aName.end(), aName.begin(), ::tolower);
+	std::transform(bName.begin(), bName.end(), bName.begin(), ::tolower);
+	
+	if (aName < bName){
+		return true;
+	}
+	else if (bName < aName){
+		return false;
+	}
+	return false;
+}
+
 
 std::vector<Student> parseStudents(const std::string& studentList){
+	//returns a sorted vector of students
 	std::vector<Student> students;
 	
 	std::string currentStudent = getNextStudent(studentList);
@@ -87,7 +104,19 @@ std::vector<Student> parseStudents(const std::string& studentList){
 		}
 		currentStudent = getNextStudent(studentList);
 	}
-
+	
+	std::sort(students.begin(), students.end(), studentCompare);
 	return students;
+}
+
+std::vector < std::vector< Student> > vecVecStudents (const std::vector<Student> studentList){
+	std::vector < std::vector <Student>> vecVecStudents;
+	
+	std::vector <Student> currentStudentRange; 
+	for(std::vector<Student>::const_iterator student_iter = studentList.begin(); student_iter != studentList.end(); ++student_iter){
+	
+	}
+	
+	return vecVecStudents;
 }
 

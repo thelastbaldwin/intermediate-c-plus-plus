@@ -11,8 +11,9 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <sstream> //convert from string to int
 #include <vector>
+#include <algorithm> //std::sort
 
 //nice to have: add to namespace
 
@@ -21,15 +22,17 @@ class Student{
 	int id;
 public:
 	Student(std::string _name, int _id = 0);
-	std::string getName();
-	int getId();
+	std::string getName() const;
+	int getId() const;
 };
 
 std::string getNextStudent(const std::string& s);
 std::string extractName(const std::string& s);
 int extractId(const std::string& s);
+bool studentCompare(const Student& a, const Student& b);
 
 std::vector<Student> parseStudents(const std::string& studentList);
+std::vector < std::vector< Student> > vecVecStudents (const std::vector<Student> studentList);
 
 
 #endif /* defined(__Assignment_2__student__) */

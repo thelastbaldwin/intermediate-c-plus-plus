@@ -72,11 +72,16 @@ TEST(extractIdTest, student){
 	CHECK_EQUAL(88, currentId);
 }
 
-TEST(parseStudentsTest, student){
+TEST(sortParseStudentsTest, student){
 	std::string studentString = "John Doe;1234,James Bond;7,Tracy Brown;177,Jack Smith;172,Jim Black,Tim White;88";
 	std::vector<Student> students = parseStudents(studentString);
-	
-	CHECK_EQUAL(students.size(), 6);
+
+	CHECK_EQUAL(students[0].getName(), "Jack Smith");
+	CHECK_EQUAL(students[1].getName(), "James Bond");
+	CHECK_EQUAL(students[2].getName(), "Jim Black");
+	CHECK_EQUAL(students[3].getName(), "John Doe");
+	CHECK_EQUAL(students[4].getName(), "Tim White");
+	CHECK_EQUAL(students[5].getName(), "Tracy Brown");
 }
 
 TEST(stringToInt, string){
@@ -90,4 +95,19 @@ TEST(stringToInt, string){
 	ss >> intFromString;
 	
 	CHECK_EQUAL(55, intFromString);
+}
+
+TEST(toLowerTest, string){
+	std::string abcd = "ABCD";
+	std::transform(abcd.begin(), abcd.end(), abcd.begin(), ::tolower);
+	CHECK_EQUAL(abcd, "abcd");	
+}
+
+TEST(basicStringCompare, string){
+	std::string bob = "bob";
+	std::string charles = "charles";
+	std::string pete = "pete";
+	CHECK(pete > bob);
+	CHECK(pete > charles);
+	CHECK(charles > bob);
 }
