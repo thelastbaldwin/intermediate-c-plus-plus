@@ -84,6 +84,14 @@ TEST(sortParseStudentsTest, student){
 	CHECK_EQUAL(students[5].getName(), "Tracy Brown");
 }
 
+TEST(vecVecStudentsTest, student){
+	std::string studentString = "John Doe;1234,James Bond;7,Tracy Brown;177,Jack Smith;172,Jim Black,Tim White;88";
+	std::vector<Student> students = parseStudents(studentString);
+	std::vector <std::vector< Student>> StudentVV = vecVecStudents(students);
+	
+	CHECK_EQUAL(StudentVV.size(), 2);
+}
+
 TEST(stringToInt, string){
 	// sanity check for converting from string to int
 	std::stringstream ss;

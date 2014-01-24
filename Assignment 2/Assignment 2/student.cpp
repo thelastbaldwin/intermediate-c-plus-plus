@@ -109,13 +109,26 @@ std::vector<Student> parseStudents(const std::string& studentList){
 	return students;
 }
 
-std::vector < std::vector< Student> > vecVecStudents (const std::vector<Student> studentList){
-	std::vector < std::vector <Student>> vecVecStudents;
+std::vector <std::vector<Student>> vecVecStudents (const std::vector<Student> studentList){
+	std::vector <std::vector <Student>> vecVecStudents;
+	std::vector <Student> currentStudentRange;
 	
-	std::vector <Student> currentStudentRange; 
 	for(std::vector<Student>::const_iterator student_iter = studentList.begin(); student_iter != studentList.end(); ++student_iter){
-	
+		if(student_iter == studentList.begin()){
+			currentStudentRange.push_back(*student_iter);
+		}else{
+			std::vector<Student>::const_iterator prev(student_iter);
+			if((*prev).getName()[0] == (*student_iter).getName()[0]){
+				currentStudentRange.push_back(*student_iter);
+			}else{
+				vecVecStudents.push_back(currentStudentRange);
+				currentStudentRange.clear();
+				currentStudentRange.push_back(*student_iter);
+			}
+		}
 	}
+	
+	vecVecStudents.push_back(currentStudentRange);
 	
 	return vecVecStudents;
 }
