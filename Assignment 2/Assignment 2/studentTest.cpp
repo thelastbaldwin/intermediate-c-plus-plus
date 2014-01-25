@@ -84,12 +84,35 @@ TEST(sortParseStudentsTest, student){
 	CHECK_EQUAL(students[5].getName(), "Tracy Brown");
 }
 
+TEST(sGetIdTest, student){
+	Student s1("John Doe", 1234);
+	CHECK_EQUAL("1234", s1.sGetId());
+}
+
+TEST(studentPrintTest, student){
+	Student s1("John Doe", 1234);
+	Student s2("Mandark");
+	
+	std::stringstream ss;
+	ss << s1;
+	CHECK_EQUAL("name: John Doe, id: 1234", ss.str());
+	ss.str("");
+	ss << s2;
+	CHECK_EQUAL("name: Mandark, id: none", ss.str());
+}
+
 TEST(vecVecStudentsTest, student){
 	std::string studentString = "John Doe;1234,James Bond;7,Tracy Brown;177,Jack Smith;172,Jim Black,Tim White;88";
 	std::vector<Student> students = parseStudents(studentString);
 	std::vector <std::vector< Student>> StudentVV = vecVecStudents(students);
 	
-	CHECK_EQUAL(StudentVV.size(), 2);
+	CHECK_EQUAL(2, StudentVV.size());
+	for(std::vector <std::vector< Student>>::const_iterator it = StudentVV.begin();
+		it != StudentVV.end(); ++it){
+		//std::cout << "section start" << std::endl;
+		printStudents(*it);
+		//std::cout << "section end" << std::endl;
+	}
 }
 
 TEST(stringToInt, string){

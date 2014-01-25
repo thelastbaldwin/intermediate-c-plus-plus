@@ -24,6 +24,7 @@ public:
 	Student(std::string _name, int _id = 0);
 	std::string getName() const;
 	int getId() const;
+	std::string sGetId() const;
 };
 
 std::string getNextStudent(const std::string& s);
@@ -31,8 +32,10 @@ std::string extractName(const std::string& s);
 int extractId(const std::string& s);
 bool studentCompare(const Student& a, const Student& b);
 
+std::ostream& operator<<(std::ostream& os, const Student& s);
+
 std::vector<Student> parseStudents(const std::string& studentList);
 std::vector < std::vector< Student> > vecVecStudents (const std::vector<Student> studentList);
-
+void printStudents(const std::vector<Student> students);
 
 #endif /* defined(__Assignment_2__student__) */
