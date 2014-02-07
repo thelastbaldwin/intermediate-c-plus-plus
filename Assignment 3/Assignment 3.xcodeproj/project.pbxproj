@@ -11,6 +11,7 @@
 		F477B29A18A49019009DA4E8 /* Assignment_3.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = F477B29918A49019009DA4E8 /* Assignment_3.1 */; };
 		F477B2A118A49189009DA4E8 /* libcppUnitLite2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F477B2A018A49189009DA4E8 /* libcppUnitLite2.a */; };
 		F477B2A418A492E4009DA4E8 /* circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F477B2A218A492E4009DA4E8 /* circle.cpp */; };
+		F477B2A718A494E2009DA4E8 /* myCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F477B2A518A494E2009DA4E8 /* myCollection.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,8 @@
 		F477B2A018A49189009DA4E8 /* libcppUnitLite2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcppUnitLite2.a; path = ../../../../../../usr/local/lib/libcppUnitLite2.a; sourceTree = "<group>"; };
 		F477B2A218A492E4009DA4E8 /* circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = circle.cpp; sourceTree = "<group>"; };
 		F477B2A318A492E4009DA4E8 /* circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = circle.h; sourceTree = "<group>"; };
+		F477B2A518A494E2009DA4E8 /* myCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = myCollection.cpp; sourceTree = "<group>"; };
+		F477B2A618A494E2009DA4E8 /* myCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCollection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 				F477B2A218A492E4009DA4E8 /* circle.cpp */,
 				F477B2A318A492E4009DA4E8 /* circle.h */,
 				F477B29918A49019009DA4E8 /* Assignment_3.1 */,
+				F477B2A518A494E2009DA4E8 /* myCollection.cpp */,
+				F477B2A618A494E2009DA4E8 /* myCollection.h */,
 			);
 			path = "Assignment 3";
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			files = (
 				F477B29818A49019009DA4E8 /* main.cpp in Sources */,
 				F477B2A418A492E4009DA4E8 /* circle.cpp in Sources */,
+				F477B2A718A494E2009DA4E8 /* myCollection.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
