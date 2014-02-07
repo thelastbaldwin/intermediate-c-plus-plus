@@ -25,12 +25,19 @@ T fact(T n){
 template < typename T>
 class myCollection{
 public:
-	myCollection();
-	int count() const;
-	bool isEmpty() const;
+	int count() const{
+		return mCollection.size();
+	};
+	bool isEmpty() const{
+		return mCollection.empty();
+	};
 	
-	void add (const T&);
-	const T get (int index) const;
+	void add (const T& t){
+		mCollection.push_back(t);
+	};
+	const T get (int index) const{
+		return mCollection[index];
+	};
 	
 	void printAll(std::ostream& os);
 	void printReverseOrder(std::ostream& os);
