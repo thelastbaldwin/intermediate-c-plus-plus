@@ -26,7 +26,7 @@ template < typename T>
 class myCollection{
 public:
 	int count() const{
-		return mCollection.size();
+		return int(mCollection.size()); //returns size_t without cast
 	};
 	bool isEmpty() const{
 		return mCollection.empty();
@@ -39,13 +39,16 @@ public:
 		return mCollection[index];
 	};
 	
+	// Because the printAll and printReverseOrder statements require using the << operator
+	// this must be overloaded in the template class
+	
 	void printAll(std::ostream& os){
 		for(typename std::vector<T>::const_iterator it = mCollection.begin(); it != mCollection.end(); ++it){
 			os << *it; 
 		}
 	};
 	void printReverseOrder(std::ostream& os){
-		for(typename std::vector<T>::const_reverse_iterator it = mCollection.begin(); it != mCollection.rend(); ++it){
+		for(typename std::vector<T>::const_reverse_iterator it = mCollection.rbegin(); it != mCollection.rend(); ++it){
 			os << *it;
 		}
 	};
