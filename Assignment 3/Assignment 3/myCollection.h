@@ -39,8 +39,16 @@ public:
 		return mCollection[index];
 	};
 	
-	void printAll(std::ostream& os);
-	void printReverseOrder(std::ostream& os);
+	void printAll(std::ostream& os){
+		for(typename std::vector<T>::const_iterator it = mCollection.begin(); it != mCollection.end(); ++it){
+			os << *it; 
+		}
+	};
+	void printReverseOrder(std::ostream& os){
+		for(typename std::vector<T>::const_reverse_iterator it = mCollection.begin(); it != mCollection.rend(); ++it){
+			os << *it;
+		}
+	};
 private:
 	std::vector<T> mCollection;
 };
