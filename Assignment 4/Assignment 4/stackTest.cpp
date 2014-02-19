@@ -23,6 +23,7 @@ TEST(intStackPushPopTest, stack){
 		intStack.pop();
 	}
 	catch(std::exception& e){
+		//when I catch my specific exception "e.what() is a private method." Why?
 		CHECK_EQUAL(e.what(), "stack empty");
 	}
 	
@@ -49,6 +50,24 @@ TEST(intStackPushTest, stack){
 		intStack.push(11);
 	}
 	catch(std::exception& e){
+		//when I catch my specific exception "e.what() is a private method." Why?
 		CHECK_EQUAL(e.what(), "stack full");
 	}
+}
+
+TEST(intStackAssignmentTest, stack){
+	Stack<int> intStack(5);	
+	intStack.push(1);
+	intStack.push(2);
+	intStack.push(3);
+	intStack.push(4);
+	intStack.push(5);
+	
+	Stack<int> intStackB(intStack); //copy constructor
+	CHECK_EQUAL(intStackB.size(), 5);
+	
+	Stack<int> intStackC(3);
+	intStackC = intStackB; //assignment operator
+	intStackB.pop();
+	CHECK_EQUAL(intStackC.size(), 5);	
 }

@@ -28,6 +28,15 @@ public:
 	Stack(unsigned int size):mSize(size), mCount(0){
 		mStack = new T[mSize];
 	};
+	
+	Stack(const Stack<T>& other):mSize(other.mSize), mCount(other.mCount){
+		mStack = new T[mSize];
+		
+		for(int i = 0; i < mCount; ++i){
+			mStack[i] = other.mStack[i];
+		}
+	};
+	
 	~Stack(){
 		delete[] mStack;
 	};
@@ -63,10 +72,30 @@ public:
 		return mCount;
 	};
 	
+	Stack<T>& operator=(const Stack<T>& rhs){
+		mSize = rhs.mSize;
+		mCount = rhs.mCount;
+		
+		delete[] mStack;
+		mStack = new T[mSize];
+		
+		for(int i = 0; i < rhs.mSize; ++i){
+			mStack[i] = rhs.mStack[i];
+		}
+		
+		return *this;
+	}
+	
+	template <typename T2>
+	Stack<T>& operator=(const Stack<T2>& rhs){
+		return *this;
+	}
+	
 private:
 	unsigned int mSize, //size of array
 	mCount; //number of items in array
 	T* mStack;
 };
+
 
 #endif /* defined(__Assignment_4__stack__) */
