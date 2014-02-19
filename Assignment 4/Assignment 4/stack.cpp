@@ -7,3 +7,11 @@
 //
 
 #include "stack.h"
+
+const char* stackEmptyException::what() const throw(){
+	return "stack empty";
+}
+
+const char* stackFullException::what() const throw(){
+	return "stack full";
+}
