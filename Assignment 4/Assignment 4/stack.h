@@ -40,6 +40,9 @@ public:
 	~Stack(){
 		delete[] mStack;
 	};
+	
+	template <typename T2> friend class Stack; //private member access across different template assignment
+	
 	void push(const T& element){
 		if(mCount < mSize){
 			for(int i = mCount + 1; i > 0; --i){
@@ -49,7 +52,14 @@ public:
 			++mCount;
 		}
 		else{
-			throw stackFullException();
+			//throw stackFullException();
+			
+			resize();
+			for(int i = mCount + 1; i > 0; --i){
+				mStack[i] = mStack[i-1];
+			}
+			mStack[0] = element;
+			++mCount;
 		}
 	};
 	
@@ -72,6 +82,7 @@ public:
 		return mCount;
 	};
 	
+	
 	Stack<T>& operator=(const Stack<T>& rhs){
 		mSize = rhs.mSize;
 		mCount = rhs.mCount;
@@ -79,7 +90,7 @@ public:
 		delete[] mStack;
 		mStack = new T[mSize];
 		
-		for(int i = 0; i < rhs.mSize; ++i){
+		for(int i = 0; i < mSize; ++i){
 			mStack[i] = rhs.mStack[i];
 		}
 		
@@ -88,6 +99,16 @@ public:
 	
 	template <typename T2>
 	Stack<T>& operator=(const Stack<T2>& rhs){
+		mSize = rhs.mSize;
+		mCount = rhs.mCount;
+		
+		delete[] mStack;
+		mStack = new T[mSize];
+		
+		for(int i = 0; i < mSize; ++i){
+			mStack[i] = rhs.mStack[i];
+		}
+		
 		return *this;
 	}
 	
@@ -95,6 +116,22 @@ private:
 	unsigned int mSize, //size of array
 	mCount; //number of items in array
 	T* mStack;
+	
+	void resize(){
+		mSize *= 2;
+		T temp[mSize];
+		
+		for(int i = 0, len = mSize/2; i < len; ++i){
+			temp[i] = mStack[i];
+		}
+		
+		delete[] mStack;
+		mStack = new T[mSize];
+		
+		for(int i = 0; i < mSize; ++i){
+			mStack[i] = temp[i];
+		}
+	}
 };
 
 

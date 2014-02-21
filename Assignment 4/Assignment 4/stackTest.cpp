@@ -1,7 +1,7 @@
 #include "TestHarness.h"
 #include "stack.h"
 
-TEST(intStackPushPopTest, stack){
+TEST(intStackPushPopTest, Stack){
 	Stack<int> intStack(10);
 	
 	intStack.push(1);
@@ -30,7 +30,7 @@ TEST(intStackPushPopTest, stack){
 	CHECK_EQUAL(0, intStack.size());
 }
 
-TEST(intStackPushTest, stack){
+TEST(intStackPushTest, Stack){
 	Stack<int> intStack(10);
 	
 	intStack.push(1);
@@ -45,17 +45,20 @@ TEST(intStackPushTest, stack){
 	intStack.push(10);
 	
 	CHECK_EQUAL(10, intStack.size());
-		
-	try{
-		intStack.push(11);
-	}
-	catch(std::exception& e){
-		//when I catch my specific exception "e.what() is a private method." Why?
-		CHECK_EQUAL(e.what(), "stack full");
-	}
+	
+	intStack.push(11); //should not through error
+	
+//	before adding resize functionality
+//	try{
+//		intStack.push(11);
+//	}
+//	catch(std::exception& e){
+//		//when I catch my specific exception "e.what() is a private method." Why?
+//		CHECK_EQUAL(e.what(), "stack full");
+//	}
 }
 
-TEST(intStackAssignmentTest, stack){
+TEST(intStackAssignmentTest, Stack){
 	Stack<int> intStack(5);	
 	intStack.push(1);
 	intStack.push(2);
@@ -70,4 +73,18 @@ TEST(intStackAssignmentTest, stack){
 	intStackC = intStackB; //assignment operator
 	intStackB.pop();
 	CHECK_EQUAL(intStackC.size(), 5);	
+}
+
+TEST(mixedAssignmentTest, Stack){
+	Stack<float> floatStack(10);
+	floatStack.push(1.1);
+	floatStack.push(2.2);
+	floatStack.push(3.3);
+	floatStack.push(4.4);
+	floatStack.push(5.5);
+	
+	Stack<int> intStack(10);
+	
+	intStack = floatStack;
+	CHECK_EQUAL(intStack.pop(), 1);
 }
